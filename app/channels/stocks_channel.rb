@@ -1,6 +1,6 @@
 class StocksChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    stream_from "stock_stream:all_stocks"
   end
 
   def unsubscribed
