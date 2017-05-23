@@ -1,3 +1,5 @@
+<% provide :stock_id, "all_stocks" %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Stocks</h1>
@@ -12,10 +14,10 @@
   </thead>
 
   <tbody>
-    <% @stocks.each do |stock| %>
-      <tr>
+    <% @stocks.each do |stock| %> <!-- Added an id so javascript can find the row of a specific stock -->
+      <tr id="<%= stock.symbol %>">
         <td><%= stock.symbol %></td>
-        <td><%= stock.price %></td>
+        <td id="price"><%= stock.price %></td> <!-- Added an id so javascript can find the price column of a stock -->
         <td><%= link_to 'Show', stock %></td>
         <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
         <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>

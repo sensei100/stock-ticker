@@ -3,12 +3,13 @@
   <head>
     <title>StockTicker</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body<% if content_for? :stock_id %> data-stream-id="<%= yield( :stock_id ) %>"<% end %>> <!-- Add data-stream-id attribute if :stock_id is present -->
     <%= yield %>
   </body>
 </html>
